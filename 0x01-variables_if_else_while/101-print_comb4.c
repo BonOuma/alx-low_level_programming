@@ -1,34 +1,34 @@
+#include <stdlib.h>
 #include <stdio.h>
 
 /**
- * main - Function
- *
- * Return: Always 0.
+ * main - Entry point
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int d1, d2, d3
+	int i;
+	int j;
+	int k;
 
-	for (d1 = 0; d1 < 8; d1++)
+	for (k = '0'; k <= '7'; k++)
 	{
-		for (d2 = d1 + 1; d2 < 9; d2++)
+		for (i = k + 1; i <= '8'; i++)
 		{
-			for (d3 = d2 + 1; d3 < 10; d3++)
+			for (j = i + 1; j <= '9'; j++)
 			{
-				putchar((d1 % 10) + '0');
-				putchar((d2 % 10) + '0');
-				putchar((d3 % 10) + '0');
+				putchar(k);
+				putchar(i);
+				putchar(j);
 
-				if (d1 == 7 && d2 == 8 && d3 == 9)
-					continue;
-
-				putchar(',');
-				putchar(' ');
+				if (j < '9' || i < '8' || k < '7')
+				{
+					putchar(',');
+					putchar(' ');
+				}
 			}
 		}
 	}
-
 	putchar('\n');
-
 	return (0);
 }
