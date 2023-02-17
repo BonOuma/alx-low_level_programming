@@ -1,17 +1,18 @@
+#include <stdlib.h>
 #include <stdio.h>
+
 /**
- * main - main function
- * Description:printing digit number
- * Return: 0
+ * main - Entry point
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-        int x;
+	int i;
 
-        for (x = 0; x <= 9; x++)
-        {
-                printf("%d", x);
-        }
-        putchar('\n');
-        return (0);
+	for (i = 0; i <= 9; i++)
+	{
+		printf("%d", i);
+	}
+	putchar('\n');
+	return (0);
 }
