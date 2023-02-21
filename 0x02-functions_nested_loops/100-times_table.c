@@ -1,12 +1,45 @@
 #include "main.h"
 /**
- * add - Adds two integers.
- * @num1: The first integer to be added.
- * @num2: The second integer to be added.
- *
- * Return: The result of the addition.
+ * print_times_table - Print the `n` times table, starting with 0.
+ * Description: If `n` is greater than 15 or less than 0, print nothing.
+ * @n: int type number
  */
-int add(int num1, int num2)
+void print_times_table(int n){
+int x = 0, y, z;
+if (n > 15 || n < 0)
+return;
+while (x <= n)
 {
-return (num1 + num2);
+for (y = 0; y <= n; y++)
+{
+z = x * y;
+if (z > 99)
+{
+_putchar(z / 100 + '0');
+_putchar((z / 10 % 10) + '0');
+_putchar(z % 10 + '0');
+}
+else if (z > 9)
+{
+_putchar(' ');
+_putchar(z / 10 + '0');
+_putchar(z % 10 + '0');
+}
+else if (y != 0)
+{
+_putchar(' ');
+_putchar(' ');
+_putchar(z + '0');
+}
+else
+_putchar(z + '0');
+if (y != n)
+{
+_putchar(',');
+_putchar(' ');
+}
+}
+_putchar('\n');
+x++;
+}
 }
