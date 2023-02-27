@@ -1,6 +1,6 @@
-*
+/*
  * File: 2-strlen.c
- * Auth: Boniface Ochieng
+ * Auth: Boniface
  */
 #include "main.h"
 /**
@@ -16,3 +16,4 @@ while (*str++)
 length++;
 return (length);
 }
+
