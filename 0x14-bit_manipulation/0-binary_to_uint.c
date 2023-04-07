@@ -1,19 +1,21 @@
 #include "main.h"
 /**
- *function to covert binary number to unsigned int
- * The return of the function is a converted number
+ * binary_to_uint - converts a binary number to an unsigned int.
+ * @b: A pointer to a string of 0 and 1 chars.
+ * Return: If b is NULL or contains chars not 0 or 1 - 0.
+ *  Otherwise - the converted number.
  */
 unsigned int binary_to_uint(const char *b)
 {
-int y;
-unsigned int age = 0;
-if (!b)
+unsigned int temp = 0;
+int y = 0;
+if (b[y] == '\0')
 return (0);
-for (y = 0; b[y]; y++)
+while ((b[y] == '0') || (b[y] == '1'))
 {
-if(b[y]< '0' || b[y] > '1')
-return (0);
-age = 2 *age + (b[y] - '0');
+temp<<= 1;
+temp += b[y] - '0';
+y++;
 }
-return (age);
+return (temp);
 }
