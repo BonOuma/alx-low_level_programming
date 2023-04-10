@@ -1,35 +1,33 @@
 #include "lists.h"
 /**
- * free_listint_safe - frees a linked list
- * @h: pointer to the first node in the linked list
+ * find_listint_loop - Finds the loop contained in
  *
- * Return: number of elements in the freed list
+ * @head: A pointer to the head of the listint_t list.
+ *
+ * Return: If there is no loop - NULL.
+ *
  */
-size_t free_listint_safe(listint_t **h)
+listint_t *find_listint_loop(listint_t *head)
 {
-size_t len = 0;
-int diff;
-listint_t *temp;
-if (!h || !*h)
-return (0);
-while (*h)
+listint_t *tortoise, *hare;
+if (head == NULL || head->next == NULL)
+return (NULL);
+tortoise = head->next;
+hare = (head->next)->next;
+while (hare)
 {
-diff = *h - (*h)->next;
-if (diff > 0)
+if (tortoise == hare)
 {
-temp = (*h)->next;
-free(*h);
-*h = temp;
-len++;
+tortoise = head;
+while (tortoise != hare)
+{
+tortoise = tortoise->next;
+hare = hare->next;
 }
-else
-{
-free(*h);
-*h = NULL;
-len++;
-break;
+return (tortoise);
 }
+tortoise = tortoise->next;
+hare = (hare->next)->next;
 }
-*h = NULL;
-return (len);
+return (NULL);
 }
